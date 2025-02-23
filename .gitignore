@@ -1,0 +1,18 @@
+# Environment files (API keys, secrets)
+.env
+
+# PyCharm settings
+.idea/
+
+# Temporary audio files
+*.wav
+
+# Python virtual environments
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs and caches
+*.log
