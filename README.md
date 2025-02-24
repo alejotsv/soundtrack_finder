@@ -35,7 +35,6 @@ Create a `.env` file in the project root and add your API keys:
 ACR_CLOUD_ACCESS_KEY=your_acrcloud_key
 ACR_CLOUD_ACCESS_SECRET=your_acrcloud_secret
 ACR_CLOUD_HOST=identify-us-west-2.acrcloud.com
-TMDB_API_KEY=your_tmdb_api_key
 GOOGLE_CSE_API_KEY=your_google_cse_key
 GOOGLE_CSE_ID=your_google_cse_id
 OPENAI_API_KEY=your_openai_key
