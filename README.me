@@ -7,22 +7,30 @@ An AI-powered web app that **identifies songs from audio and finds the movies an
 ✅ **Google-Enhanced Accuracy** – Integrates Google Search API to improve results.
 ✅ **Structured Results** – Displays **movies (title & year)** and **TV shows (title, season, episode, year)**.
 
-### **1⃣ Clone the Repository**
+---
+
+## 🛠️ Setup & Installation
+
+### **1️⃣ Clone the Repository**
 ```sh
 git clone https://github.com/yourusername/soundtrack-finder.git
 cd soundtrack-finder
+```
 
-### **2⃣ Create & Activate a Virtual Environment**
-``sh
+### **2️⃣ Create & Activate a Virtual Environment**
+```sh
 python -m venv venv
 source venv/bin/activate  # MacOS/Linux
 venv\Scripts\activate      # Windows
+```
 
-### **3⃣ Install Dependencies**
+### **3️⃣ Install Dependencies**
 ```sh
 pip install -r requirements.txt
+```
 
-### **4⃣ Set Up Environment Variables**
+### **4️⃣ Set Up Environment Variables**
+Create a `.env` file in the project root and add your API keys:
 ```ini
 ACR_CLOUD_ACCESS_KEY=your_acrcloud_key
 ACR_CLOUD_ACCESS_SECRET=your_acrcloud_secret
@@ -31,12 +39,46 @@ TMDB_API_KEY=your_tmdb_api_key
 GOOGLE_CSE_API_KEY=your_google_cse_key
 GOOGLE_CSE_ID=your_google_cse_id
 OPENAI_API_KEY=your_openai_key
+```
 
-### **5⃣ Run the App**
+---
+
+## 🎤 Usage
+
+### **5️⃣ Run the App**
 ```sh
+python main.py
+```
+- **Record a song snippet** (10 sec)
+- **AI & Google search will process the song**
+- **Results will be displayed in the terminal**
 
-Record a song snippet (10 sec)
-AI & Google search will process the song
-Results will be displayed in the terminal
+---
 
-### **6⃣ Install Dependencies**
+## 📡 API Deployment (Render)
+
+### **6️⃣ Deploy on Render**
+Once deployed on **Render**, the app will expose an API for front-end integration.
+Check the **deployment guide** to set up your Render environment.
+
+---
+
+## 🖥️ Future Improvements
+🔹 **Web UI** – Build a TypeScript-based front-end for easy interaction.
+🔹 **Database Integration** – Cache results to improve performance.
+🔹 **User Contributions** – Allow users to edit & submit missing soundtrack info.
+
+---
+
+## 📜 License
+This project is **MIT Licensed**. Feel free to modify and use it for your own purposes.
+
+---
+
+## 🤝 Contributing
+Pull requests are welcome! If you'd like to contribute, please fork the repo and submit a PR.
+
+---
+
+### **🌟 Show Some Love!**
+If you like this project, give it a ⭐ on [GitHub](https://github.com/yourusername/soundtrack-finder)!
