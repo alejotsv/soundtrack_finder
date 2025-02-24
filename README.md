@@ -2,9 +2,9 @@
 An AI-powered web app that **identifies songs from audio and finds the movies and TV shows where they were featured**.
 
 ## 🚀 Features
-✅ **Live Audio Recognition** – Uses ACRCloud API to identify songs from recorded audio.
-✅ **AI-Powered Search** – Utilizes OpenAI to find where the song was used in movies & TV shows.
-✅ **Google-Enhanced Accuracy** – Integrates Google Search API to improve results.
+✅ **Live Audio Recognition** – Uses ACRCloud API to identify songs from recorded audio.  
+✅ **AI-Powered Search** – Utilizes OpenAI to find where the song was used in movies & TV shows.  
+✅ **Google-Enhanced Accuracy** – Integrates Google Search API to improve results.  
 ✅ **Structured Results** – Displays **movies (title & year)** and **TV shows (title, season, episode, year)**.
 
 ---
