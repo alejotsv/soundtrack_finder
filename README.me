@@ -6,3 +6,37 @@ An AI-powered web app that **identifies songs from audio and finds the movies an
 ✅ **AI-Powered Search** – Utilizes OpenAI to find where the song was used in movies & TV shows.
 ✅ **Google-Enhanced Accuracy** – Integrates Google Search API to improve results.
 ✅ **Structured Results** – Displays **movies (title & year)** and **TV shows (title, season, episode, year)**.
+
+### **1⃣ Clone the Repository**
+```sh
+git clone https://github.com/yourusername/soundtrack-finder.git
+cd soundtrack-finder
+
+### **2⃣ Create & Activate a Virtual Environment**
+``sh
+python -m venv venv
+source venv/bin/activate  # MacOS/Linux
+venv\Scripts\activate      # Windows
+
+### **3⃣ Install Dependencies**
+```sh
+pip install -r requirements.txt
+
+### **4⃣ Set Up Environment Variables**
+```ini
+ACR_CLOUD_ACCESS_KEY=your_acrcloud_key
+ACR_CLOUD_ACCESS_SECRET=your_acrcloud_secret
+ACR_CLOUD_HOST=identify-us-west-2.acrcloud.com
+TMDB_API_KEY=your_tmdb_api_key
+GOOGLE_CSE_API_KEY=your_google_cse_key
+GOOGLE_CSE_ID=your_google_cse_id
+OPENAI_API_KEY=your_openai_key
+
+### **5⃣ Run the App**
+```sh
+
+Record a song snippet (10 sec)
+AI & Google search will process the song
+Results will be displayed in the terminal
+
+### **6⃣ Install Dependencies**
