@@ -1,13 +1,13 @@
-import './App.css';
-import ListeningButton from './components/ListeningButton';
+import './App.css'
+import ListeningButton from './components/ListeningButton'
 
-function App() {
+const App = () => {
+  
   return (
-    <div className="App">
-      Press this button.
+    <div>      
       <ListeningButton />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
