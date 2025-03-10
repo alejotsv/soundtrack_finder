@@ -1,11 +1,11 @@
 import './App.css'
-import ListeningButton from './components/ListeningButton'
+import SoundTracker from './components/SoundTracker'
 
 const App = () => {
   
   return (
     <div>      
-      <ListeningButton />
+      <SoundTracker />
     </div>
   )
 }

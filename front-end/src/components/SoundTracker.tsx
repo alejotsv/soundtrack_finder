@@ -1,22 +1,27 @@
 import { useState } from "react";
 import { Button, Center, Text, Stack } from "@mantine/core";
 import { AudioRecorder } from "../utils/audioRecorder"; // Import the recorder class
+import { recognizeSong } from "../utils/songRecognizer"; // Import song recognition function
 
-const ListeningButton = () => {
+const SoundTracker = () => {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
     setLoading(true);
-    const recorder = new AudioRecorder(10); // Create a new recorder instance
+    const recorder = new AudioRecorder(10); // Record for 10 seconds
 
     try {
-      const audioBlob = await recorder.startRecording();
-      console.log("🎤 Recorded Audio Blob:", audioBlob);
-    } catch (error) {
-      console.error("❌ Recording failed:", error);
-    }
+      // 🎤 Start recording audio
+      const audioBlob = await recorder.startRecording();     
 
-    setLoading(false);
+      // 🎵 Send to ACRCloud for recognition
+      const songData = await recognizeSong(audioBlob);
+      console.log("🎶 Extracted Song Data:", songData);
+    } catch (error) {
+      console.error("❌ Error in recording or recognition:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -65,4 +70,4 @@ const ListeningButton = () => {
   );
 };
 
-export default ListeningButton;
+export default SoundTracker;
