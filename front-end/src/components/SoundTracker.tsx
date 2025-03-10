@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Center, Text, Stack } from "@mantine/core";
 import { AudioRecorder } from "../utils/audioRecorder"; // Import the recorder class
 import { recognizeSong } from "../utils/songRecognizer"; // Import song recognition function
+import { findSoundtrack } from "../utils/soundtrackRetriever";
 
 const SoundTracker = () => {
   const [loading, setLoading] = useState(false);
@@ -12,13 +13,21 @@ const SoundTracker = () => {
 
     try {
       // 🎤 Start recording audio
-      const audioBlob = await recorder.startRecording();     
+      const audioBlob = await recorder.startRecording();
+      console.log("🎤 Recorded Audio Blob:", audioBlob);
 
-      // 🎵 Send to ACRCloud for recognition
+      // 🎵 Recognize song from ACRCloud
       const songData = await recognizeSong(audioBlob);
       console.log("🎶 Extracted Song Data:", songData);
+
+      if (songData) {
+        // 🎬 Send song details to AI API
+        console.log("🔍 Searching for soundtracks...");
+        const soundtrackResult = await findSoundtrack(songData);
+        console.log("🎥 AI Soundtrack Finder Response:", soundtrackResult);
+      }
     } catch (error) {
-      console.error("❌ Error in recording or recognition:", error);
+      console.error("❌ Error in recognition or soundtrack search:", error);
     } finally {
       setLoading(false);
     }

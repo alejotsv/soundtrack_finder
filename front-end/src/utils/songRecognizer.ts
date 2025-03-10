@@ -70,8 +70,9 @@ export async function recognizeSong(audioBlob: Blob) {
     // ✅ Extract song details
     if (result?.metadata?.music?.length > 0) {
       const firstMatch = result.metadata.music[0]; // Take first result
+      const cleanedTitle = firstMatch.title.replace(/^"|"$/g, "");
       return {
-        song_title: firstMatch.title || "Unknown Title",
+        song_title: cleanedTitle || "Unknown Title",
         artist: firstMatch.artists?.[0]?.name || "Unknown Artist",
       };
     }
