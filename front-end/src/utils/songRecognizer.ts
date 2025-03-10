@@ -3,8 +3,6 @@ const ACR_CLOUD_ACCESS_SECRET = import.meta.env.VITE_ACR_CLOUD_ACCESS_SECRET;
 const ACR_CLOUD_HOST = import.meta.env.VITE_ACR_CLOUD_HOST;
 
 async function generateHmacSha1(message: string, secret: string): Promise<string> {
-  console.log("🔎 String to Sign (TypeScript):", JSON.stringify(message));
-
   // Convert secret to Uint8Array
   const encoder = new TextEncoder();
   const keyData = encoder.encode(secret);
@@ -20,11 +18,8 @@ async function generateHmacSha1(message: string, secret: string): Promise<string
 
   // Convert message to Uint8Array and sign
   const signatureBuffer = await window.crypto.subtle.sign("HMAC", key, encoder.encode(message));
-
-  // ✅ Corrected conversion from ArrayBuffer to Base64
   const signatureBase64 = arrayBufferToBase64(signatureBuffer);
-
-  console.log("🔎 Corrected HMAC-SHA1 Signature (TypeScript):", signatureBase64);
+  
   return signatureBase64;
 }
 
