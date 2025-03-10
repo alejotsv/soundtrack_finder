@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { Button, Center, Text, Stack } from "@mantine/core";
+import { AudioRecorder } from "../utils/audioRecorder"; // Import the recorder class
 
 const ListeningButton = () => {
   const [loading, setLoading] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Simulate a 2-second API call
+    const recorder = new AudioRecorder(10); // Create a new recorder instance
+
+    try {
+      const audioBlob = await recorder.startRecording();
+      console.log("🎤 Recorded Audio Blob:", audioBlob);
+    } catch (error) {
+      console.error("❌ Recording failed:", error);
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -16,17 +24,17 @@ const ListeningButton = () => {
       style={{
         height: "100vh",
         textAlign: "center",
-        backgroundColor: "#f5f5f5", // Light background for contrast
-        padding: "0 20px", // Prevents text from touching edges on small screens
+        backgroundColor: "#f5f5f5",
+        padding: "0 20px",
       }}
     >
       <Stack gap={20} align="center">
         {/* Explanation Text */}
         <Text
           size="xl"
-          fw={600} // ✅ Changed from 'weight' to 'fw' for correct Mantine usage
+          fw={600}
           style={{
-            fontFamily: "'Poppins', sans-serif", // Modern, clean font
+            fontFamily: "'Poppins', sans-serif",
             maxWidth: "600px",
             margin: "0 auto",
             lineHeight: "1.5",
