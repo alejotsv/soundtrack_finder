@@ -13,7 +13,7 @@ GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 
 app = Flask(__name__)
 
-CORS(app, origins=["http://localhost:5173"])
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def google_search(query):
     """Uses Google Custom Search Engine (CSE) to find relevant links."""
