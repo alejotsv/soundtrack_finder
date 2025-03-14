@@ -20,10 +20,7 @@ const SoundTracker = () => {
 
     try {
       const audioBlob = await recorder.startRecording();
-      console.log("🎤 Recorded Audio Blob:", audioBlob);
-
       const identifiedSong = await recognizeSong(audioBlob);
-      console.log("🎶 Extracted Song Data:", identifiedSong);
 
       if (!identifiedSong) {
         setMessage("❌ Could not identify the song.");

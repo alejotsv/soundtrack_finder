@@ -64,8 +64,7 @@ export async function recognizeSong(audioBlob: Blob) {
       body: formData,
     });
 
-    const result = await response.json();
-    console.log("🎵 ACRCloud API Response:", result);
+    const result = await response.json();    
 
     // Extract song details
     if (result?.metadata?.music?.length > 0) {
@@ -78,8 +77,7 @@ export async function recognizeSong(audioBlob: Blob) {
     }
 
     return null;
-  } catch (error) {
-    console.error("❌ Error sending audio to ACRCloud:", error);
+  } catch (error) {    
     return null;
   }
 }

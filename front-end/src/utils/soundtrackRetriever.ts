@@ -10,12 +10,10 @@ export async function findSoundtrack(songData: { song_title: string; artist: str
       body: JSON.stringify(songData),
     });
 
-    const result = await response.json();
-    console.log("🎬 Soundtrack API Response:", result);
+    const result = await response.json();   
 
     return result;
-  } catch (error) {
-    console.error("❌ Error sending data to Soundtrack API:", error);
+  } catch (error) {    
     return null;
   }
 }

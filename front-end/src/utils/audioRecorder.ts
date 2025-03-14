@@ -26,15 +26,12 @@ export class AudioRecorder {
           resolve(audioBlob);
         };
 
-        this.mediaRecorder.start();
-
-        console.log(`🎤 Recording started... (${this.duration} seconds)`);
-
+        this.mediaRecorder.start();       
+        
         // Stop recording after the specified duration
         setTimeout(() => {
           if (this.mediaRecorder && this.mediaRecorder.state === "recording") {
-            this.mediaRecorder.stop();
-            console.log("⏹️ Recording stopped.");
+            this.mediaRecorder.stop();            
           }
         }, this.duration * 1000);
       } catch (error) {
