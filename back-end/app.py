@@ -13,7 +13,9 @@ GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
+if os.getenv("FLASK_ENV") == "development":
+    print("running on Dev")
+    CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 
 def google_search(query):
     """Uses Google Custom Search Engine (CSE) to find relevant links."""
@@ -79,7 +81,7 @@ def ai_find_song_usage(song_title, artist):
     return final_results
 
 
-@app.route('/identify', methods=['POST'])
+@app.route('/find-that-soundtrack', methods=['POST'])
 def identify_song():
     """API endpoint to receive song title & artist and find soundtrack appearances."""
     try:
@@ -90,7 +92,6 @@ def identify_song():
         if not song_title or not artist:
             return jsonify({"status": "error", "message": "Missing song_title or artist in request body"}), 400
 
-        print(f"✅ Received song: {song_title} by {artist}")
         soundtrack_info = ai_find_song_usage(song_title, artist)
 
         return jsonify({

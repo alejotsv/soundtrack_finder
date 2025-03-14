@@ -2,7 +2,7 @@ export async function findSoundtrack(songData: { song_title: string; artist: str
   const API_URL = import.meta.env.VITE_API_URL || "https://soundtrack-finder.onrender.com";
 
   try {
-    const response = await fetch(`${API_URL}/identify`, {
+    const response = await fetch(`${API_URL}/find-that-soundtrack`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
