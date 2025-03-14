@@ -14,8 +14,9 @@ GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 app = Flask(__name__)
 
 if os.getenv("FLASK_ENV") == "development":
-    print("running on Dev")
     CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
+else:
+    CORS(app, resources={r"/*": {"origins": "https://soundtrack-finder.onrender.com"}})
 
 def google_search(query):
     """Uses Google Custom Search Engine (CSE) to find relevant links."""
