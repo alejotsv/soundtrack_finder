@@ -23,7 +23,7 @@ async function generateHmacSha1(message: string, secret: string): Promise<string
   return signatureBase64;
 }
 
-// ✅ Converts ArrayBuffer (Web Crypto) to Base64, ensuring correct encoding
+// Converts ArrayBuffer (Web Crypto) to Base64, ensuring correct encoding
 function arrayBufferToBase64(buffer: ArrayBuffer): string {
   const binary = Array.from(new Uint8Array(buffer))
     .map((byte) => String.fromCharCode(byte))
@@ -67,9 +67,9 @@ export async function recognizeSong(audioBlob: Blob) {
     const result = await response.json();
     console.log("🎵 ACRCloud API Response:", result);
 
-    // ✅ Extract song details
+    // Extract song details
     if (result?.metadata?.music?.length > 0) {
-      const firstMatch = result.metadata.music[0]; // Take first result
+      const firstMatch = result.metadata.music[0];
       const cleanedTitle = firstMatch.title.replace(/"/g, "");
       return {
         song_title: cleanedTitle || "Unknown Title",

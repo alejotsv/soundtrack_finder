@@ -13,7 +13,7 @@ GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173/"}})
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 
 def google_search(query):
     """Uses Google Custom Search Engine (CSE) to find relevant links."""
@@ -39,6 +39,8 @@ def ai_find_song_usage(song_title, artist):
         "Format the output strictly as follows:\n"
         "Movies:\nTitle (Year)\n"
         "TV Shows:\nTitle, SXXEXX (Year)"
+        "DO NOT use numbers to order the list, at the beginning of each result"
+        "DO NOT use any type of decorators (periods, dots, hyphens, etc.) at the beginning of each result"
     )
 
     client = openai.OpenAI(api_key=OPENAI_API_KEY)
